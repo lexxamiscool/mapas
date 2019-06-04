@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="#">Puntos de referencia </a>&nbsp;
+      <div class="collapse navbar-collapse">
+          <form class="navbar-form  my-auto d-inline w-100">
+              <div class="form-row">
+                  <div class="col-md-3 mx-2">
+                      <select name="" id="mySelect" class="custom-select" (change)="mun($event.target.value)" >
+                          <option disabled selected>Estados</option>
+                          <option value="00">--Sin Selección--</option>
+                          <option *ngFor="let estado of estados" [value]="estado.estadoCodigo">
+                             {{estado.estadoNombre}}
+                          </option>
+                        </select>   
+                </div>&nbsp;
+                <div class="col-md-3 mx-2">
+                      <select name="" id="mySelect" class="custom-select" (change)="ward($event.target.value)">
+                          <option disabled selected>Municipios</option> 
+                          <option value ="00">--Sin Seleccion--</option>
+                          <!--<option value="00" *ngIf="!seleccion">Sin Municipio</option>-->
+                          <option *ngFor="let municipio of municipios" [value]="municipio.municipioCodigo" >
+                              {{municipio.municipioNombre}}
+                          </option>
+                      </select>
+                </div>&nbsp;
+                <div class="col-md-3 mx-2">
+                      <select name="" id="mySelect" class="custom-select" (change)="wardId($event.target.value)" >
+                        <option disabled selected>Parroquias</option> 
+                        <option value="00">--Sin selecciónn--</option>
+                        <option *ngIf="!sinSeleccion">Sin Parroquias</option>                      
+                        <option *ngFor="let parroquia of parroquias" [value]="parroquia.parroquiaCodigo">
+                            {{parroquia.nombreParroquia}}
+                        </option>
+                      </select>
+                </div>&nbsp;
+                <button type="submit" class="btn btn-success" (click)="enviaDatos()">Filtrar</button>&nbsp;
+          &nbsp;<button type="submit" class="btn btn-danger">Limpiar</button>
+                </div>
+
+          </form>
+      </div>
+</nav>

@@ -1,0 +1,29 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+    <div class="list-group">
+        <a  class="list-group-item">
+                <i class="fa fa-user"></i>
+                <span>{{nombre}} </span>
+                <span>{{apellido}}</span>&nbsp;
+                <br>
+                <span >{{nivel_admin?'Administrador':'Usuario'}}</span> 
+        </a>
+        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-dashboard"></i>&nbsp;
+            <span>Tablero</span>
+        </a>
+        <a routerLink="/mapa" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-globe"></i>&nbsp;
+            <span>Puntos de referencia </span>
+        </a>
+        <a routerLink="/login" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-power-off"></i>&nbsp;
+            <span>Cerrar Sesión</span>
+        </a>
+        
+        </div>
+    
+    <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
+        <i class="fa fa-fw fa-angle-double-left"></i>&nbsp;
+        <span>{{ 'Collapse Sidebar' | translate }}</span>
+    </div>
+</nav>

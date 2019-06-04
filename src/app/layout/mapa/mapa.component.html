@@ -1,0 +1,9 @@
+<app-navbar-mapa></app-navbar-mapa>
+<app-navbar-mapa (enviarDatos)="procesarDatos($event)" (mensajeAlerta)="recibirAlerta($event)">
+</app-navbar-mapa>
+ 
+<div *ngIf="alertaAviso" class="alert alert-danger">
+    <strong>{{alertaMensaje}}</strong>
+</div>
+
+<div class="map" id="map"></div>

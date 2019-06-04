@@ -1,0 +1,36 @@
+<div class="login-page" [@routerTransition]>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img src="assets/images/logo.png" width="150px" class="user-avatar" />
+            <h1>SB Admin BS4 Angular5</h1>
+            <form [formGroup]="loginForm" (ngSubmit)="logIn(username.value,password.value)" role="form">
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="text" #username class="form-control input-underline input-lg" formControlName ="username"  id="username" placeholder="Username">
+                           
+                            <div *ngIf="loginForm.get('username').touched && loginForm.get('username').hasError('required')" class="alert alert-danger">
+                                    <span>Este campo es requerido</span>
+                            </div>
+                            <div  *ngIf="loginForm.get('username').hasError('minlength') || loginForm.get('username').hasError('pattern')" class="alert alert-danger">
+                                    <span>Debe tener al menos 3 caracteres alfabéticos en minúsculas, sin espacios en blancos</span>
+                            </div>
+                    </div>
+                
+                    <div class="form-group">
+                        <input type="password" #password class="form-control input-underline input-lg"  formControlName = "password" id="password"  placeholder="Password">   
+                            <div *ngIf="loginForm.get('password').touched && loginForm.get('password').hasError('required')" class="alert alert-danger">
+                                    <span>Este campo es requerido</span>
+                            </div>
+                            <div *ngIf="loginForm.get('password').hasError('minlength') || loginForm.get('password').hasError('pattern')" class="alert alert-danger">
+                                    <span>Debe tener al menos 3 caracteres alfabéticos en minúsculas, sin espacios en blancos</span>
+                            </div>
+                    </div>
+                </div>
+
+                <button class="btn rounded-btn" type="submit">Log In</button>
+                &nbsp;
+                <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>
+            </form>
+        </div>
+    </div>
+</div>
